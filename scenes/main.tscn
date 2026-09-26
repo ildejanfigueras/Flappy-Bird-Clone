@@ -22,4 +22,5 @@ z_index = 1
 [node name="PipeTimer" type="Timer" parent="." unique_id=260886067]
 wait_time = 1.5
 
+[connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
