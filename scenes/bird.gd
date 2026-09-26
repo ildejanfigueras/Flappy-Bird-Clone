@@ -16,7 +16,6 @@ func reset():
 	position = START_POS
 	set_rotation(0)
 	
-	#Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):
 	if flying or falling:
 		velocity.y += GRAVITY * delta

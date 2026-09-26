@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0nhfrgkefpk" path="res://scenes/pipe.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://daepsck2fwvsm" path="res://scenes/bird.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cvderb8n8audy" path="res://scenes/ground.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bgcdrynn8a8r3" path="res://scenes/game_over.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node" unique_id=628932576]
 script = ExtResource("1_sugp2")
@@ -22,5 +23,22 @@ z_index = 1
 [node name="PipeTimer" type="Timer" parent="." unique_id=260886067]
 wait_time = 1.5
 
+[node name="ScoreLabel" type="Label" parent="." unique_id=1918718576]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.5
+offset_top = 50.0
+offset_right = 85.5
+offset_bottom = 105.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "SCORE: 0"
+
+[node name="GameOver" parent="." unique_id=2084939403 instance=ExtResource("6_tefeu")]
+
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
